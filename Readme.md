@@ -13,4 +13,4 @@ So now you do not need to download `node` every time you run a container.
 ```
 docker run --volumes-from nvm-cache -p 8080:8080 -i -t -e VER=6.2.2 -v $(pwd):/src i1skn/jsdev
 ```
-* **VER** (OPTIONAL) is `node` version. Default to latest version.
+After container created you will be automatically moved to `/src` if it exist. **VER** (OPTIONAL) is `node` version, default to latest version.
