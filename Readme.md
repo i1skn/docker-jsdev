@@ -33,4 +33,4 @@ docker run --volumes-from nvm-cache -p 8080:8080 -i -t -e VER=6.2.2 -v $(pwd):/s
 alias jsd="~/.jsd/run.sh"
 ```
 * Run `source <your_bash_profile_file>`
-* Type `jsd` in directory you want to work
+* Type `jsd` in directory you want to work in
