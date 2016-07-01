@@ -1,6 +1,11 @@
 # JS development using Docker
 This docker image is useful for developing using `node`.
 
+### Why you want to use this?
+* Host machine is not polluted with `npm` `nvm` `global node modules` stuff
+* You can copy your node environment and easily restore it somewhere else (Read: you can share it with your team)
+* You can run your code on production like environment
+* `node-gyp` friendly
 
 ### NVM Cache
 Because we want to be able to run containers with different `node` versions, there are no `node` in the image. This mean, that every time we run a container - `nvm` is about to install `node`. To prevent this we can create [Data Volume Container](https://docs.docker.com/v1.10/engine/userguide/containers/dockervolumes/) to store `nvm` cache.
