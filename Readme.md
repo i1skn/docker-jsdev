@@ -28,6 +28,7 @@ For convenience you can create bash alias to run long `docker run` command
 ```
 docker run --volumes-from nvm-cache -p 8080:8080 -i -t -e VER=6.2.2 -v $(pwd):/src i1skn/jsdev
 ```
+* Run `chmod +x ~/.jsd/run.sh`
 * Add to your `bash profile`(like .zshrc etc) file following:
 ```
 alias jsd="~/.jsd/run.sh"
