@@ -11,7 +11,7 @@ This docker image is useful for developing using `node`.
 ### NVM Cache
 Because we want to be able to run containers with different `node` versions, there are no `node` in the image. This mean, that every time we run a container - `nvm` is about to install `node`. To prevent this we can create [Data Volume Container](https://docs.docker.com/v1.10/engine/userguide/containers/dockervolumes/) to store `nvm` cache.
 ```
-docker create -v /root/.nvm --name nvm-cache i1skn/jsdev
+docker create -v /root/.nvm -v /root/.node-gyp --name nvm-cache i1skn/jsdev
 ```
 So now you do not need to download `node` every time you run a container.
 
