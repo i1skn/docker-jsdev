@@ -26,7 +26,12 @@ For convenience you can create bash alias to run long `docker run` command
 * Create directory `~/.jsd`(could be any name)
 * Put the file `run.sh` inside this directory with `docker run` script:
 ```
-docker run --volumes-from nvm-cache -p 8080:8080 -i -t -e VER=6.2.2 -v $(pwd):/src i1skn/jsdev
+PORTS=""
+for port in "$@"
+do
+    PORTS="-p $port:$port $PORTS"
+done
+docker run --volumes-from nvm-cache $PORTS -i -t -e VER=6.2.2 -v $(pwd):/src i1skn/jsdev
 ```
 * Run `chmod +x ~/.jsd/run.sh`
 * Add to your `bash profile`(like .zshrc etc) file following:
@@ -34,4 +39,4 @@ docker run --volumes-from nvm-cache -p 8080:8080 -i -t -e VER=6.2.2 -v $(pwd):/s
 alias jsd="~/.jsd/run.sh"
 ```
 * Run `source <your_bash_profile_file>`
-* Type `jsd` in directory you want to work in
+* Type `jsd 3000 8000` in directory you want to work in and you will enter Debian machine with installed node and opened port 3000 and 800
