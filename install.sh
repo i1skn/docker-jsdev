@@ -47,13 +47,17 @@ else
   echo "=> Docker is not installed!"
   echo "=> Please go to https://docs.docker.com/engine/installation/, install docker and run this script again."
 fi
-
+if [ -z $(docker images | grep "i1skn/jsdev" | cut -f 1 -d ' ') ] ; then
+  echo "=> Downloading latest Docker image"
+  docker pull i1skn/jsdev
+fi
 echo "=> Creating Data Volume Container for nvm cache..."
 DOCKER_NVM_CACHE=$(docker create -v /root/.nvm -v /root/.node-gyp --name nvm-cache i1skn/jsdev 2>&1)
 if [ $? == 0 ] ; then
   echo "=> Done! Container with ID $DOCKER_NVM_CACHE was created!"
 else
   echo "=> Failed! $DOCKER_NVM_CACHE"
+  exit
 fi
 
 mkdir -p $INSTALL_DIR
@@ -84,9 +88,13 @@ else
   fi
 fi
 
-echo "\n=> Installation process is succesfully finished!\n"
-echo "   !!! Please do now 'source $PROFILE' and after you can start developing!\n"
-echo "   After this, just navigate to the project directory and run 'jsd' command!\n"
+echo "=> Installation process is succesfully finished!"
+echo
+echo "   !!! Please do now 'source $PROFILE' and after you can start developing!"
+echo
+echo "   After this, just navigate to the project directory and run 'jsd' command!"
+echo
 echo "   Examples:"
 echo "   jsd -v 4.2.2 3000 8000    will start environment with node version 4.2.2 and open ports 3000 and 8000"
 echo "   jsd 8080                  will start environment with the latest node version and open port 8080"
+echo
