@@ -48,13 +48,13 @@ else
   echo "=> Please go to https://docs.docker.com/engine/installation/, install docker and run this script again."
 fi
 
-# echo "=> Creating Data Volume Container for nvm cache..."
-# DOCKER_NVM_CACHE=$(docker create -v /root/.nvm -v /root/.node-gyp --name nvm-cache i1skn/jsdev 2>&1)
-# if [ $? == 0 ] ; then
-#   echo "=> Done! Container with ID $DOCKER_NVM_CACHE was created!"
-# else
-#   echo "=> Failed! $DOCKER_NVM_CACHE"
-# fi
+echo "=> Creating Data Volume Container for nvm cache..."
+DOCKER_NVM_CACHE=$(docker create -v /root/.nvm -v /root/.node-gyp --name nvm-cache i1skn/jsdev 2>&1)
+if [ $? == 0 ] ; then
+  echo "=> Done! Container with ID $DOCKER_NVM_CACHE was created!"
+else
+  echo "=> Failed! $DOCKER_NVM_CACHE"
+fi
 
 mkdir -p $INSTALL_DIR
 echo "=> Donwloading jsd alias script..."
