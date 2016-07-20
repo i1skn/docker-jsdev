@@ -3,7 +3,6 @@ VERSION=""
 while [[ $@ ]]
 do
 key="$1"
-echo $key
 case $key in
     -v|--version)
     VERSION="$2"
