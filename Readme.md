@@ -35,7 +35,7 @@ After container created you will be automatically moved to `/src` if it exist.
 ### Install
 To install, you can use the install script using cURL:
 ```
-url -o- https://raw.githubusercontent.com/i1skn/docker-jsdev/master/install.sh | bash
+curl -o- https://raw.githubusercontent.com/i1skn/docker-jsdev/master/install.sh | bash
 ```
 Script will create `NVM Cache container` and also add **jsd** tool, which will make usage even simplier!  
 
