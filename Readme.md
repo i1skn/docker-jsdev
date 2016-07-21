@@ -1,18 +1,18 @@
 # JavaScript development using Docker
 Everything below should be useful for everyone, who developing using `node`.
 
-### Example
+### How it works?
 1. Install [Docker](https://docs.docker.com/engine/installation)  
 2. Run [install script](#install) and do not forget to `source` updated configuration (you will be notified with more detail instructions during the process).
-3. Just do this:
+3. Do this:
 ```
 cd ~/my-cool-project // Move to your project directory
-jsd 8000             // Run Linux environment with latest Node installed
-                        // When container starting - it will mound current directory to /src
+jsd 8000             // This is a shortcuf for docker run --volumes-from nvm-cache -p 8000:8000 -i -t -v $(pwd):/src i1skn/jsdev
+                     // Run Linux environment with latest Node installed, also open 8000 port.
+                     // When container starting - it will mound current directory to /src
 npm install          // Install deps
 npm start            // Run the server
 ```
-4. Enjoy your development :)
 
 ### Why you want to develop NodeJS with Docker?
 * Finally Docker released versions for [Mac](https://docs.docker.com/engine/installation/mac/#/docker-for-mac) and [Windows](https://docs.docker.com/engine/installation/windows/#/docker-for-windows), which implements "native" approach.
@@ -25,7 +25,7 @@ npm start            // Run the server
 [Official image](https://hub.docker.com/_/node/) has only one installed node version per image. So basically to run another node version, you will need another image.  
 This image give you possibility to use multiple node versions within the same image.
 
-### How this works
+### Under the hood
 Basically we take debian image and install python, gcc and other useful stuff.  
 Next we install [nvm](https://github.com/creationix/nvm) to be able use multiple node versions.  
 So now when you run a container from this image you will need to install needed node version. If we will do this way, time to run a container will be around 1 minute (depend from internet connection and CPU) which is not really convenient.  
