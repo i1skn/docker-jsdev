@@ -9,7 +9,7 @@ Everything below should be useful for everyone, who developing using `node`.
 cd ~/my-cool-project // Move to your project directory
 jsd 8000             // This is a shortcuf for docker run --volumes-from nvm-cache -p 8000:8000 -i -t -v $(pwd):/src i1skn/jsdev
                      // Run Linux environment with latest Node installed, also open 8000 port.
-                     // When container starting - it will mound current directory to /src
+                     // When container starting - it will mount current directory to /src
 npm install          // Install deps
 npm start            // Run the server
 ```
