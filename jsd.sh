@@ -14,4 +14,4 @@ case $key in
 esac
 shift
 done
-docker run --volumes-from nvm-cache $PORTS -i -t -e VER=$VERSION -v $(pwd):/src i1skn/jsdev
+docker run --rm --volumes-from nvm-cache $PORTS -i -t -e VER=$VERSION -v $(pwd):/src i1skn/jsdev
