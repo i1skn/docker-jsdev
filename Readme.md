@@ -1,8 +1,10 @@
 # JavaScript development using Docker
 Everything below should be useful for everyone, who developing using `node`.
 
+[Docker](https://docs.docker.com/) can be incredibly powerfull for isolating your dev environment!
+
 ### How it works?
-1. Install [Docker](https://docs.docker.com/engine/installation)  
+1. Install [Docker](https://docs.docker.com/engine/installation).
 2. Run [install script](#install) and do not forget to `source` updated configuration (you will be notified with more detail instructions during the process).
 3. Do this:
 ```
